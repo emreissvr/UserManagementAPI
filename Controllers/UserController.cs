@@ -17,44 +17,28 @@ namespace UserManagementAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<User> GetUser(int id)
         {
-            try
-            {
-                var user = users.FirstOrDefault(u => u.Id == id);
-                return user == null ? NotFound($"User with ID {id} not found.") : Ok(user);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"An error occurred: {ex.Message}");
-            }
+            var user = users.FirstOrDefault(u => u.Id == id);
+            return user == null ? NotFound() : Ok(user);
         }
 
-
         [HttpPost]
-        public ActionResult<User> CreateUser([FromBody] User user)
+        public ActionResult<User> CreateUser(User user)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
             user.Id = users.Count + 1;
             users.Add(user);
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateUser(int id, [FromBody] User updatedUser)
+        public IActionResult UpdateUser(int id, User updatedUser)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
             var user = users.FirstOrDefault(u => u.Id == id);
-            if (user == null)
-                return NotFound();
+            if (user == null) return NotFound();
 
             user.FirstName = updatedUser.FirstName;
             user.LastName = updatedUser.LastName;
             user.Email = updatedUser.Email;
             user.Department = updatedUser.Department;
-
             return NoContent();
         }
 
