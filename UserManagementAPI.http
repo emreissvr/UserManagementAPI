@@ -1,6 +1,56 @@
 @UserManagementAPI_HostAddress = http://localhost:5050
+@AuthHeader = Bearer secure-token-123
 
+### Test default WeatherForecast (optional)
 GET {{UserManagementAPI_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+### Get all users
+GET {{UserManagementAPI_HostAddress}}/api/users
+Authorization: {{AuthHeader}}
+Accept: application/json
+
+###
+
+### Get a specific user by ID
+GET {{UserManagementAPI_HostAddress}}/api/users/1
+Authorization: {{AuthHeader}}
+Accept: application/json
+
+###
+
+### Create a new user
+POST {{UserManagementAPI_HostAddress}}/api/users
+Authorization: {{AuthHeader}}
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Smith",
+  "email": "alice.smith@techhive.com",
+  "department": "HR"
+}
+
+###
+
+### Update an existing user by ID
+PUT {{UserManagementAPI_HostAddress}}/api/users/1
+Authorization: {{AuthHeader}}
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Johnson",
+  "email": "alice.johnson@techhive.com",
+  "department": "IT"
+}
+
+###
+
+### Delete a user by ID
+DELETE {{UserManagementAPI_HostAddress}}/api/users/1
+Authorization: {{AuthHeader}}
 
 ###
