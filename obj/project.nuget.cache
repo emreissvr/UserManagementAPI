@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "JT4Ni9RIA6c=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\emrisse\\OneDrive - DFDS\\Desktop\\COURSERA\\UserManagementAPI\\UserManagementAPI\\UserManagementAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\emrisse\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+    "C:\\Users\\emrisse\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://dfds.pkgs.visualstudio.com/_packaging/Phoenix/nuget/v3/index.json."
+    },
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://dfds.pkgs.visualstudio.com/Intermodal/_packaging/Intermodal/nuget/v3/index.json."
+    }
+  ]
+}
